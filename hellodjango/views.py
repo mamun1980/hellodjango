@@ -12,8 +12,9 @@ def GetUserLatestInfo(request):
 	mynow = datetime.datetime.now()
 	thirtysec = datetime.timedelta(seconds=25)
 	before_thirty = mynow - thirtysec
+	hellos = Hello.objects.all().order_by("name")
 
-	hellos = Hello.objects.filter(modified_at__gte=before_thirty, created_at__gte=before_thirty)
+	# hellos = Hello.objects.filter(modified_at__gte=before_thirty, created_at__gte=before_thirty)
 	hello_list = []
 	for hello in hellos:
 		hello_dict = {}
