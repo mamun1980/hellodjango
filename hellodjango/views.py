@@ -2,14 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import json
 from hellodjango.models import Hello
-
+import datetime
 
 def home(request):
 	return render(request, "home.html", {})
 
 
 def GetUserLatestInfo(request):
-	hellos = Hello.objects.all()
+	mynow = datetime.datetime.now()
+	thirtysec = datetime.timedelta(seconds=25)
+	before_thirty = mynow - thirtysec
+
+	hellos = Hello.objects.filter(modified_at__gte=before_thirty, created_at__gte=before_thirty)
 	hello_list = []
 	for hello in hellos:
 		hello_dict = {}
