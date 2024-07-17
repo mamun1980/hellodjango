@@ -23,5 +23,5 @@ def GetUserLatestInfo(request):
 		hello_list.append(hello_dict)
 
 	hello_json = json.dumps(hello_list)
-	return HttpResponse(hello_json)
+	return HttpResponse(hello_json, content_type="application/json")
 
