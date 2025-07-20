@@ -96,3 +96,4 @@ STATICFILES_DIRS = (
 )
 
 TEMPLATE_DIRS = ( BASE_DIR + '/templates/', )
+SESSION_COOKIE_SECURE = True
